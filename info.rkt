@@ -1,8 +1,10 @@
 #lang info
-(define collection "softposit")
+(define name "softposit")
+(define pre-install-collection "install.rkt")
+(define compile-omit-files "install.rkt")
 (define deps '("base"))
 (define build-deps '("scribble-lib" "racket-doc" "rackunit-lib"))
 (define scribblings '(("scribblings/softposit.scrbl" ())))
-(define pkg-desc "Description Here")
+(define pkg-desc "Racket bindings for softposit")
 (define version "0.0")
-(define pkg-authors '(dthien))
+(define pkg-authors '(David Thien))
