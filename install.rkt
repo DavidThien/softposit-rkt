@@ -8,4 +8,4 @@
 
 ;; Compile the softposit C library and wait for the make command to finish
 (call-and-wait "make -C SoftPosit/build/Linux-x86_64-GCC SOFTPOSIT_OPTS=\"$(SOFTPOSIT_OPTS) -fPIC\"")
-(call-and-wait "gcc *.o -shared -o ../../../softposit.so")
+(call-and-wait "gcc *.o -shared -o ../../../libsoftposit.so")
