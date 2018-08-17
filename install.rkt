@@ -11,17 +11,11 @@
     ;; TODO: This is just for testing purposes
     (for ([i (in-naturals)]
           #:break (not (eq? ((fifth out) 'status) 'running)))
-      void)
-    (println (read (car out))))
+      void))
 
   (define build-location (build-path this-collection-path "SoftPosit/build/Linux-x86_64-GCC/"))
-  (println build-location)
   (define lib-location (build-path this-collection-path "libsoftposit.so"))
-  (println lib-location)
   (define softposit-location (build-path this-collection-path "SoftPosit"))
-
-  (println (directory-list this-collection-path))
-  (println (directory-list softposit-location))
 
   ;; If the SoftPosit path is empty, then git submodules weren't initialized
   (when (= 0 (length (directory-list softposit-location)))
