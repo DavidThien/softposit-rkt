@@ -1,5 +1,8 @@
 #lang racket/base
 
+(require "softposit.rkt")
+(provide (all-from-out "softposit.rkt"))
+
 (module+ test
   (require rackunit))
 
