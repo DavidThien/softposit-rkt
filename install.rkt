@@ -26,8 +26,8 @@
   ;; If the SoftPosit path is empty, then git submodules weren't initialized
   (when (= 0 (length (directory-list softposit-location)))
     (begin
-      (call-and-wait (string-append "git submodule init -C " (path->string softposit-location)))
-      (call-and-wait (string-append "git submodule update -C " (path->string softposit-location)))))
+      (call-and-wait (string-append "git -C " (path->string softposit-location) " submodule init"))
+      (call-and-wait (string-append "git -C " (path->string softposit-location) " submodule update"))))
 
   ;; Compile the softposit C library and wait for the make command to finish
   (call-and-wait (string-append "make -C " (path->string build-location) " SOFTPOSIT_OPTS=\"$(SOFTPOSIT_OPTS) -fPIC\""))
