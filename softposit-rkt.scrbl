@@ -336,7 +336,7 @@ Note that there are multiple bindings exposed which cast back to natural numbers
 
 @subsection{Quires}
 
-Quires are another feature of the Posit specication. They can be though of as a large accumulator designed to hold enough bits of information so as to not introduce any rounding error. Note that these accumulators have a fixed number of bits, so only a limited number of accumulations can be done on them safely. A @racket[_quire8] has 4 times the number of bits as a @racket[_posit8], a @racket[_quire16] has 8 times the bits as a @racket[_posit16], and a @racket[_quire32] has 16 times the bits as a @racket[_posit32].
+Quires are another feature of the Posit specication. They can be thought of as a large accumulator designed to hold enough bits of information so as to not introduce any rounding error. Note that these accumulators have a fixed number of bits, so only a limited (but very large) number of accumulations can be done on them safely. A @racket[_quire8] has 4 times the number of bits as a @racket[_posit8], a @racket[_quire16] has 8 times the bits as a @racket[_posit16], and a @racket[_quire32] has 16 times the bits as a @racket[_posit32].
 
 @subsection{Quire Types}
 
@@ -385,19 +385,19 @@ All quires are initialized to 0.
 Note that there is currently no twos-complement for @racket[_quire8]s.
 
 @defproc[(quire8-fdp-add [q quire8?] [p1 posit8?] [p2 posit8?]) quire8?]{
-  Returns the result of adding @racket[p1] and @racket[p2] to @racket[q].
+  Returns the result of adding @racket[p1] times @racket[p2] to @racket[q].
 }
 
 @defproc[(quire8-fdp-sub [q quire8?] [p1 posit8?] [p2 posit8?]) quire8?]{
-  Returns the result of subtraction @racket[p1] and @racket[p2] from @racket[q].
+  Returns the result of subtracting @racket[p1] times @racket[p2] from @racket[q].
 }
 
 @defproc[(quire16-fdp-add [q quire16?] [p1 posit16?] [p2 posit16?]) quire16?]{
-  Returns the result of adding @racket[p1] and @racket[p2] to @racket[q].
+  Returns the result of adding @racket[p1] times @racket[p2] to @racket[q].
 }
 
 @defproc[(quire16-fdp-sub [q quire16?] [p1 posit16?] [p2 posit16?]) quire16?]{
-  Returns the result of subtraction @racket[p1] and @racket[p2] from @racket[q].
+  Returns the result of subtracting @racket[p1] times @racket[p2] from @racket[q].
 }
 
 @defproc[(quire16-twos-complement [q quire16?]) quire16?]{
@@ -405,11 +405,11 @@ Note that there is currently no twos-complement for @racket[_quire8]s.
 }
 
 @defproc[(quire32-fdp-add [q quire32?] [p1 posit32?] [p2 posit32?]) quire32?]{
-  Returns the result of adding @racket[p1] and @racket[p2] to @racket[q].
+  Returns the result of adding @racket[p1] times @racket[p2] to @racket[q].
 }
 
 @defproc[(quire32-fdp-sub [q quire32?] [p1 posit32?] [p2 posit32?]) quire32?]{
-  Returns the result of subtraction @racket[p1] and @racket[p2] from @racket[q].
+  Returns the result of subtracting @racket[p1] times @racket[p2] from @racket[q].
 }
 
 @defproc[(quire32-twos-complement [q quire32?]) quire32?]{
