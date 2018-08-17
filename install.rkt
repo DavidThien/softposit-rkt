@@ -16,6 +16,8 @@
   (define build-location (build-path this-collection-path "SoftPosit/build/Linux-x86_64-GCC/"))
   (define lib-location (build-path this-collection-path "libsoftposit.so"))
   (define softposit-location (build-path this-collection-path "SoftPosit"))
+  (println (path->string softposit-location))
+  (println (string-append "git -C " (path->string softposit-location) " submodule init"))
 
   ;; If the SoftPosit path is empty, then git submodules weren't initialized
   (when (= 0 (length (directory-list softposit-location)))
