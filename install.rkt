@@ -18,9 +18,16 @@
   (println build-location)
   (define lib-location (build-path this-collection-path "libsoftposit.so"))
   (println lib-location)
+  (define softposit-location (build-path this-collection-path "SoftPosit"))
 
   (println (directory-list this-collection-path))
-  (println (directory-list (build-path this-collection-path "SoftPosit")))
+  (println (directory-list softposit-location))
+
+  ;; If the SoftPosit path is empty, then git submodules weren't initialized
+  (when (= 0 (length (directory-list softposit-location)))
+    (begin
+      (call-and-wait (string-append "git submodule init -C " (path->string softposit-location)))
+      (call-and-wait (string-append "git submodule update -C " (path->string softposit-location)))))
 
   ;; Compile the softposit C library and wait for the make command to finish
   (call-and-wait (string-append "make -C " (path->string build-location) " SOFTPOSIT_OPTS=\"$(SOFTPOSIT_OPTS) -fPIC\""))
