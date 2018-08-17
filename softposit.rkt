@@ -6,7 +6,31 @@
 
 ;; Define all types. Note that this file assumes that the softposit code was compiled
 ;; with SOFTPOSIT_EXACT undefined
-(provide (all-defined-out))
+(provide (_posit8 _posit16 _posit32 _posit64 _posit128
+          _quire8 _quire16 _quire32
+          uint32->posit8 uint32->posit16 uint32->posit32 uint64->posit8 uint64->posit16 uint64->posit32 
+          int32->posit8 int32->posit16 int32->posit32 int64->posit8 int64->posit16 int64->posit32
+          posit8->uint32 posit8->uint64 posit8->int32 posit8->int64
+          posit8->posit16 posit8->posit32
+          posit8-round-to-int posit8-add posit8-sub posit8-mul posit8-mulAdd posit8-div posit8-sqrt
+          posit8-eq?  posit8-le posit8-lt
+          create-quire8 create-quire16 create-quire32
+          quire8-fdp-add quire8-fdp-sub quire8->posit8
+          p8->double double->p8
+          posit16->uint32 posit16->uint64 posit16->int32 posit16->int64
+          posit16->posit8 posit16->posit32
+          posit16-round-to-int posit16-add posit16-sub posit16-mul posit16-mulAdd posit16-div posit16-sqrt
+          posit16-eq?  posit16-le posit16-lt
+          quire16-fdp-add quire16-fdp-sub quire16->posit16
+          quire16-twos-complement
+          posit16->double float->posit16 double->posit16
+          posit32->uint32 posit32->uint64 posit32->int32 posit32->int64
+          posit32->posit8 posit32->posit16
+          posit32-round-to-int posit32-add posit32-sub posit32-mul posit32-mulAdd posit32-div posit32-sqrt
+          posit32-eq?  posit32-le posit32-lt
+          quire32-fdp-add quire32-fdp-sub quire32->posit32
+          quire32-twos-complement
+          posit32->double float->posit32 double->posit32))
 
 (define-cstruct _posit8 ([v _uint8]))
 (define-cstruct _posit16 ([v _uint16]))
@@ -128,15 +152,3 @@
 (define posit32->double (get-ffi-obj "convertP32ToDouble" "libsoftposit" (_fun _posit32 -> _double)))
 (define float->posit32 (get-ffi-obj "convertFloatToP32" "libsoftposit" (_fun _float -> _posit32)))
 (define double->posit32 (get-ffi-obj "convertDoubleToP32" "libsoftposit" (_fun _double -> _posit32)))
-
-;; TODO: This shouldn't always return true
-(struct big-posit16 (v))
-
-;; TODO: This might not be the best way to handle bigfloats
-(define (bf-double->posit16 x) (big-posit16 x))
-(define (bf-posit16->double x) (big-posit16-v x))
-(define (bf-posit16-add x y) (big-posit16 (bf+ (big-posit16-v x) (big-posit16-v y))))
-(define (bf-posit16-sub x y) (big-posit16 (bf- (big-posit16-v x) (big-posit16-v y))))
-(define (bf-posit16-mul x y) (big-posit16 (bf* (big-posit16-v x) (big-posit16-v y))))
-(define (bf-posit16-div x y) (big-posit16 (bf/ (big-posit16-v x) (big-posit16-v y))))
-(define (bf-posit16-sqrt x) (big-posit16 (bfsqrt (big-posit16-v x))))
