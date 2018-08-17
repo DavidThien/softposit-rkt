@@ -1,7 +1,7 @@
 #lang info
 (define name "softposit-rkt")
 (define pre-install-collection "install.rkt")
-(define compile-omit-files "install.rkt")
+(define compile-omit-files '("install.rkt"))
 (define move-foreign-libs '("libsoftposit.so"))
 (define deps '("base"))
 (define build-deps '("scribble-lib" "racket-doc" "rackunit-lib"))
