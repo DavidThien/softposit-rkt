@@ -11,9 +11,13 @@
     ;; TODO: This is just for testing purposes
     (for ([i (in-naturals)]
           #:break (not (eq? ((fifth out) 'status) 'running)))
-      void))
+      void)
+    (println (read (car out))))
+
+  (define build-location (build-path this-collection-path "SoftPosit/build/Linux-x86_64-GCC/"))
+  (define lib-location (build-path this-collection-path "libsoftposit.so"))
 
   ;; Compile the softposit C library and wait for the make command to finish
-  (call-and-wait "make -C SoftPosit/build/Linux-x86_64-GCC SOFTPOSIT_OPTS=\"$(SOFTPOSIT_OPTS) -fPIC\"")
-  (call-and-wait "gcc SoftPosit/build/Linux-x86_64-GCC/*.o -shared -o libsoftposit.so")
-  (call-and-wait "make clean -C SoftPosit/build/Linux-x86_64-GCC"))
+  (call-and-wait (string-append "make -C " (path->string build-location) " SOFTPOSIT_OPTS=\"$(SOFTPOSIT_OPTS) -fPIC\""))
+  (call-and-wait (string-append "gcc " (path->string build-location) "*.o -shared -o " (path->string lib-location)))
+  (call-and-wait (string-append "make clean -C " (path->string build-location))))
