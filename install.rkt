@@ -19,6 +19,9 @@
   (define lib-location (build-path this-collection-path "libsoftposit.so"))
   (println lib-location)
 
+  (println (directory-list this-collection-path))
+  (println (directory-list (build-path this-collection-path "SoftPosit")))
+
   ;; Compile the softposit C library and wait for the make command to finish
   (call-and-wait (string-append "make -C " (path->string build-location) " SOFTPOSIT_OPTS=\"$(SOFTPOSIT_OPTS) -fPIC\""))
   (call-and-wait (string-append "gcc " (path->string build-location) "*.o -shared -o " (path->string lib-location)))
