@@ -14,7 +14,7 @@ This package is a set of racket bindings for the @hyperlink["https://gitlab.com/
 
 @subsection{Posits}
 
-Posits themselves are a representation of the @hyperlink["https://en.wikipedia.org/wiki/Real_projective_line"]{projective reals} (think of a number line with the positive and negative infinities taped together.) The different sizes of posits are included this package are @racket[_posit8] @racket[_posit16] @racket[_posit32] @racket[_posit64] and @racket[_posit128]. Note thought that only the 8, 16, and 32 bit posits currently have arithmetic operators implemented.
+Posits themselves are a representation of the @hyperlink["https://en.wikipedia.org/wiki/Real_projective_line"]{projective reals}. The different sizes of posits are included this package are @racket[_posit8] @racket[_posit16] @racket[_posit32] @racket[_posit64] and @racket[_posit128]. Note thought that only the 8, 16, and 32 bit posits currently have arithmetic operators implemented.
 
 The posit types in this package are bindings for c types. Note that only the types and type predicates are bound. All other operations with posits should be accessed with the other provided functions.
 
