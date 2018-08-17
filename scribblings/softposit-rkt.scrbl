@@ -19,23 +19,23 @@ The posit types in this package are bindings for c types. Note that only the typ
 
 @subsection{Posit Types}
 
-@defproc[(_posit8) ctype?]{
+@defthing[_posit8 ctype?]{
   An 8-bit posit.
 }
 
-@defproc[(_posit16) ctype?]{
+@defthing[_posit16 ctype?]{
   A 16-bit posit.
 }
 
-@defproc[(_posit32) ctype?]{
+@defthing[_posit32 ctype?]{
   A 32-bit posit.
 }
 
-@defproc[(_posit64) ctype?]{
+@defthing[_posit64 ctype?]{
   A 64-bit posit.
 }
 
-@defproc[(_posit128) ctype?]{
+@defthing[_posit128 ctype?]{
   A 128-bit posit.
 }
 
@@ -339,15 +339,15 @@ Quires are another feature of the Posit specication. They can be though of as a 
 
 @subsection{Quire Types}
 
-@defproc[(_quire8) ctype?]{
+@defthing[_quire8 ctype?]{
   An 8-bit quire.
 }
 
-@defproc[(_quire16) ctype?]{
+@defthing[_quire16 ctype?]{
   An 16-bit quire.
 }
 
-@defproc[(_quire32) ctype?]{
+@defthing[_quire32 ctype?]{
   An 32-bit quire.
 }
 
