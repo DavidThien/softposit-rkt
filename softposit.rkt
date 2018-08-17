@@ -7,7 +7,9 @@
 ;; Define all types. Note that this file assumes that the softposit code was compiled
 ;; with SOFTPOSIT_EXACT undefined
 (provide _posit8 _posit16 _posit32 _posit64 _posit128
+         posit8? posit16? posit32? posit64? posit128?
          _quire8 _quire16 _quire32
+         quire8? quire16? quire32?
          uint32->posit8 uint32->posit16 uint32->posit32 uint64->posit8 uint64->posit16 uint64->posit32
          int32->posit8 int32->posit16 int32->posit32 int64->posit8 int64->posit16 int64->posit32
          posit8->uint32 posit8->uint64 posit8->int32 posit8->int64
