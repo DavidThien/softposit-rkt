@@ -8,10 +8,11 @@
 @section{Introduction}
 This package is a set of racket bindings for the @hyperlink["https://gitlab.com/cerlane/SoftPosit"]{SoftPosit} library. More information on posits can be found on @hyperlink["https://posithub.org/"]{Posithub}. Posits are an alternative to floating point numbers designed to improve performance and accuracy.
 
+@section{API}
 
 @defmodule[softposit-rkt]
 
-@section{Posits}
+@subsection{Posits}
 
 Posits themselves are a representation of the @hyperlink["https://en.wikipedia.org/wiki/Real_projective_line"]{projective reals} (think of a number line with the positive and negative infinities taped together.) The different sizes of posits are included this package are @racket[_posit8] @racket[_posit16] @racket[_posit32] @racket[_posit64] and @racket[_posit128]. Note thought that only the 8, 16, and 32 bit posits currently have arithmetic operators implemented.
 
@@ -199,15 +200,15 @@ Note that there are multiple bindings exposed which cast back to natural numbers
   Casts a @racket[_posit32] to a int64.
 }
 
-@defproc[(double->int64 [p posit8?]) real?]{
+@defproc[(posit8->double [p posit8?]) real?]{
   Casts a @racket[_posit8] to a double.
 }
 
-@defproc[(double->int64 [p posit16?]) real?]{
+@defproc[(posit16->double [p posit16?]) real?]{
   Casts a @racket[_posit16] to a int64.
 }
 
-@defproc[(double->int64 [p posit32?]) real?]{
+@defproc[(posit32->double [p posit32?]) real?]{
   Casts a @racket[_posit32] to a int64.
 }
 
@@ -249,7 +250,7 @@ Note that there are multiple bindings exposed which cast back to natural numbers
   Returns @racket[#t] if @racket[p1] is strictly less than @racket[p2].
 }
 
-@defproc[(posit8-lt? [p1 posit8?] [p2 posit8?]) posit8?]{
+@defproc[(posit8-le? [p1 posit8?] [p2 posit8?]) posit8?]{
   Returns @racket[#t] if @racket[p1] is less than or equal to @racket[p2].
 }
 
@@ -289,7 +290,7 @@ Note that there are multiple bindings exposed which cast back to natural numbers
   Returns @racket[#t] if @racket[p1] is strictly less than @racket[p2].
 }
 
-@defproc[(posit16-lt? [p1 posit16?] [p2 posit16?]) posit16?]{
+@defproc[(posit16-le? [p1 posit16?] [p2 posit16?]) posit16?]{
   Returns @racket[#t] if @racket[p1] is less than or equal to @racket[p2].
 }
 
@@ -329,11 +330,11 @@ Note that there are multiple bindings exposed which cast back to natural numbers
   Returns @racket[#t] if @racket[p1] is strictly less than @racket[p2].
 }
 
-@defproc[(posit32-lt? [p1 posit32?] [p2 posit32?]) posit32?]{
+@defproc[(posit32-le? [p1 posit32?] [p2 posit32?]) posit32?]{
   Returns @racket[#t] if @racket[p1] is less than or equal to @racket[p2].
 }
 
-@section{Quires}
+@subsection{Quires}
 
 Quires are another feature of the Posit specication. They can be though of as a large accumulator designed to hold enough bits of information so as to not introduce any rounding error. Note that these accumulators have a fixed number of bits, so only a limited number of accumulations can be done on them safely. A @racket[_quire8] has 4 times the number of bits as a @racket[_posit8], a @racket[_quire16] has 8 times the bits as a @racket[_posit16], and a @racket[_quire32] has 16 times the bits as a @racket[_posit32].
 
