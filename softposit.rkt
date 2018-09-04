@@ -92,7 +92,7 @@
 
 ;; TODO: isNaRQ8, isQ8Zero, (consider q8Clr), castQ8, castP8, negP8
 
-(define poist8->double (get-ffi-obj "convertP8ToDouble" "libsoftposit" (_fun _posit8 -> _double)))
+(define posit8->double (get-ffi-obj "convertP8ToDouble" "libsoftposit" (_fun _posit8 -> _double)))
 (define double->posit8 (get-ffi-obj "convertDoubleToP8" "libsoftposit" (_fun _double -> _posit8)))
 
 (define posit16->uint32 (get-ffi-obj "p16_to_ui32" "libsoftposit" (_fun _posit16 -> _uint32)))
