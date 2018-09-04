@@ -18,7 +18,7 @@
          posit8-eq? posit8-le? posit8-lt?
          create-quire8 create-quire16 create-quire32
          quire8-fdp-add quire8-fdp-sub quire8->posit8
-         p8->double double->p8
+         posit8->double double->posit8
          posit16->uint32 posit16->uint64 posit16->int32 posit16->int64
          posit16->posit8 posit16->posit32
          posit16-round-to-int posit16-add posit16-sub posit16-mul posit16-mulAdd posit16-div posit16-sqrt
@@ -92,8 +92,8 @@
 
 ;; TODO: isNaRQ8, isQ8Zero, (consider q8Clr), castQ8, castP8, negP8
 
-(define p8->double (get-ffi-obj "convertP8ToDouble" "libsoftposit" (_fun _posit8 -> _double)))
-(define double->p8 (get-ffi-obj "convertDoubleToP8" "libsoftposit" (_fun _double -> _posit8)))
+(define poist8->double (get-ffi-obj "convertP8ToDouble" "libsoftposit" (_fun _posit8 -> _double)))
+(define double->posit8 (get-ffi-obj "convertDoubleToP8" "libsoftposit" (_fun _double -> _posit8)))
 
 (define posit16->uint32 (get-ffi-obj "p16_to_ui32" "libsoftposit" (_fun _posit16 -> _uint32)))
 (define posit16->uint64 (get-ffi-obj "p16_to_ui64" "libsoftposit" (_fun _posit16 -> _uint64)))
