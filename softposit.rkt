@@ -10,6 +10,8 @@
          posit8? posit16? posit32? posit64? posit128?
          _quire8 _quire16 _quire32
          quire8? quire16? quire32?
+         random-posit8 random-posit16 random-posit32 random-posit64 random-posit128
+         random-quire8 random-quire16 random-quire32
          uint32->posit8 uint32->posit16 uint32->posit32 uint64->posit8 uint64->posit16 uint64->posit32
          int32->posit8 int32->posit16 int32->posit32 int64->posit8 int64->posit16 int64->posit32
          posit8->uint32 posit8->uint64 posit8->int32 posit8->int64
@@ -46,6 +48,46 @@
 (define-cstruct _quire8 ([v _uint32]))
 (define-cstruct _quire16 ([v (make-array-type _uint64 2)]))
 (define-cstruct _quire32 ([v (make-array-type _uint64 8)]))
+
+(define (random-bits b [n 0])
+  (if (= b 0)
+    n
+    (random-bits (sub1 b) (+ (arithmetic-shift n 1) (random 2)))))
+
+(define (random-posit8)
+  (define v (random-bits 8))
+  (make-posit8 v))
+
+(define (random-posit16)
+  (define v (random-bits 16))
+  (make-posit16 v))
+
+(define (random-posit32)
+  (define v (random-bits 32))
+  (make-posit32 v))
+
+(define (random-posit64)
+  (define v (random-bits 64))
+  (make-posit64 v))
+
+(define (random-posit128)
+  (define v (for/list ([_ (range 2)])
+              (random-bits 64)))
+  (make-posit128 (list->cblock v _uint64)))
+
+(define (random-quire8)
+  (define v (random-bits 32))
+  (make-quire8 (list->cblock (list v) _uint32)))
+
+(define (random-quire16)
+  (define v (for/list ([_ (range 2)])
+              (random-bits 64)))
+  (make-quire16 (list->cblock v _uint64)))
+
+(define (random-quire32)
+  (define v (for/list ([_ (range 8)])
+              (random-bits 64)))
+  (make-quire32 (list->cblock v _uint64)))
 
 (define uint32->posit8 (get-ffi-obj "ui32_to_p8" "libsoftposit" (_fun _uint32 -> _posit8)))
 (define uint32->posit16 (get-ffi-obj "ui32_to_p16" "libsoftposit" (_fun _uint32 -> _posit16)))
