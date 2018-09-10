@@ -33,6 +33,7 @@
          quire32-fdp-add quire32-fdp-sub quire32->posit32
          quire32-twos-complement
          posit32->double float->posit32 double->posit32
+         posit8->quire8 posit16->quire16 posit32->quire32 
          double->quire8 double->quire16 double->quire32
          quire8->double quire16->double quire32->double)
 
@@ -165,6 +166,10 @@
 (define posit32->double (get-ffi-obj "convertP32ToDouble" "libsoftposit" (_fun _posit32 -> _double)))
 (define float->posit32 (get-ffi-obj "convertFloatToP32" "libsoftposit" (_fun _float -> _posit32)))
 (define double->posit32 (get-ffi-obj "convertDoubleToP32" "libsoftposit" (_fun _double -> _posit32)))
+
+(define (posit8->quire8 q) (quire8-fdp-add (create-quire8) q (double->quire8 1.0)))
+(define (posit16->quire16 q) (quire16-fdp-add (create-quire16) q (double->quire16 1.0)))
+(define (posit32->quire32 q) (quire32-fdp-add (create-quire32) q (double->quire32 1.0)))
 
 (define (double->quire8 d) (create-quire8 (double->posit8 d)))
 (define (double->quire16 d) (create-quire16 (double->posit16 d)))
