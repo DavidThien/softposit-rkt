@@ -39,15 +39,15 @@
          double->quire8 double->quire16 double->quire32
          quire8->double quire16->double quire32->double)
 
-(define-cstruct _posit8 ([v _uint8]))
-(define-cstruct _posit16 ([v _uint16]))
-(define-cstruct _posit32 ([v _uint32]))
-(define-cstruct _posit64 ([v _uint64]))
-(define-cstruct _posit128 ([v (make-array-type _uint64 2)]))
+(define-cstruct _posit8 ([v _uint8]) #:malloc-mode 'atomic-interior)
+(define-cstruct _posit16 ([v _uint16]) #:malloc-mode 'atomic-interior)
+(define-cstruct _posit32 ([v _uint32]) #:malloc-mode 'atomic-interior)
+(define-cstruct _posit64 ([v _uint64]) #:malloc-mode 'atomic-interior)
+(define-cstruct _posit128 ([v (make-array-type _uint64 2)]) #:malloc-mode 'atomic-interior)
 
-(define-cstruct _quire8 ([v _uint32]))
-(define-cstruct _quire16 ([v (make-array-type _uint64 2)]))
-(define-cstruct _quire32 ([v (make-array-type _uint64 8)]))
+(define-cstruct _quire8 ([v _uint32]) #:malloc-mode 'atomic-interior)
+(define-cstruct _quire16 ([v (make-array-type _uint64 2)]) #:malloc-mode 'atomic-interior)
+(define-cstruct _quire32 ([v (make-array-type _uint64 8)]) #:malloc-mode 'atomic-interior)
 
 (define (random-bits b [n 0])
   (if (= b 0)
