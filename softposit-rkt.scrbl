@@ -242,16 +242,36 @@ Note that there are multiple bindings exposed which cast back to natural numbers
   Takes the square root of @racket[p1].
 }
 
-@defproc[(posit8-eq? [p1 posit8?] [p2 posit8?]) boolean?]{
+@defproc[(posit8-neg [p1 posit8?]) posit8?]{
+  Negates @racket[p1].
+}
+
+@defproc[(posit16-neg [p1 posit16?]) posit16?]{
+  Negates @racket[p1].
+}
+
+@defproc[(posit32-neg [p1 posit32?]) posit32?]{
+  Negates @racket[p1].
+}
+
+@defproc[(posit8= [p1 posit8?] [p2 posit8?]) boolean?]{
   Returns @racket[#t] if @racket[p1] and @racket[p2] are equal.
 }
 
-@defproc[(posit8-lt? [p1 posit8?] [p2 posit8?]) posit8?]{
+@defproc[(posit8< [p1 posit8?] [p2 posit8?]) posit8?]{
   Returns @racket[#t] if @racket[p1] is strictly less than @racket[p2].
 }
 
-@defproc[(posit8-le? [p1 posit8?] [p2 posit8?]) posit8?]{
+@defproc[(posit8<= [p1 posit8?] [p2 posit8?]) posit8?]{
   Returns @racket[#t] if @racket[p1] is less than or equal to @racket[p2].
+}
+
+@defproc[(posit8> [p1 posit8?] [p2 posit8?]) posit8?]{
+  Returns @racket[#t] if @racket[p1] is greater than to @racket[p2].
+}
+
+@defproc[(posit8>= [p1 posit8?] [p2 posit8?]) posit8?]{
+  Returns @racket[#t] if @racket[p1] is greater than or equal to @racket[p2].
 }
 
 @defproc[(posit16-round-to-int [p posit16?]) posit16?]{
@@ -282,16 +302,24 @@ Note that there are multiple bindings exposed which cast back to natural numbers
   Takes the square root of @racket[p1].
 }
 
-@defproc[(posit16-eq? [p1 posit16?] [p2 posit16?]) boolean?]{
+@defproc[(posit16= [p1 posit16?] [p2 posit16?]) boolean?]{
   Returns @racket[#t] if @racket[p1] and @racket[p2] are equal.
 }
 
-@defproc[(posit16-lt? [p1 posit16?] [p2 posit16?]) posit16?]{
+@defproc[(posit16< [p1 posit16?] [p2 posit16?]) posit16?]{
   Returns @racket[#t] if @racket[p1] is strictly less than @racket[p2].
 }
 
-@defproc[(posit16-le? [p1 posit16?] [p2 posit16?]) posit16?]{
+@defproc[(posit16<= [p1 posit16?] [p2 posit16?]) posit16?]{
   Returns @racket[#t] if @racket[p1] is less than or equal to @racket[p2].
+}
+
+@defproc[(posit16> [p1 posit16?] [p2 posit16?]) posit16?]{
+  Returns @racket[#t] if @racket[p1] is greater than to @racket[p2].
+}
+
+@defproc[(posit16>= [p1 posit16?] [p2 posit16?]) posit16?]{
+  Returns @racket[#t] if @racket[p1] is greater than or equal to @racket[p2].
 }
 
 @defproc[(posit32-round-to-int [p posit32?]) posit32?]{
@@ -322,16 +350,24 @@ Note that there are multiple bindings exposed which cast back to natural numbers
   Takes the square root of @racket[p1].
 }
 
-@defproc[(posit32-eq? [p1 posit32?] [p2 posit32?]) boolean?]{
+@defproc[(posit32= [p1 posit32?] [p2 posit32?]) boolean?]{
   Returns @racket[#t] if @racket[p1] and @racket[p2] are equal.
 }
 
-@defproc[(posit32-lt? [p1 posit32?] [p2 posit32?]) posit32?]{
+@defproc[(posit32< [p1 posit32?] [p2 posit32?]) posit32?]{
   Returns @racket[#t] if @racket[p1] is strictly less than @racket[p2].
 }
 
-@defproc[(posit32-le? [p1 posit32?] [p2 posit32?]) posit32?]{
+@defproc[(posit32<= [p1 posit32?] [p2 posit32?]) posit32?]{
   Returns @racket[#t] if @racket[p1] is less than or equal to @racket[p2].
+}
+
+@defproc[(posit32> [p1 posit32?] [p2 posit32?]) posit32?]{
+  Returns @racket[#t] if @racket[p1] is greater than to @racket[p2].
+}
+
+@defproc[(posit32>= [p1 posit32?] [p2 posit32?]) posit32?]{
+  Returns @racket[#t] if @racket[p1] is greater than or equal to @racket[p2].
 }
 
 @subsection{Quires}
@@ -380,6 +416,30 @@ All quires are initialized to 0.
   Creates a new @racket[_quire32].
 }
 
+@defproc([posit8->quire8 [p posit8?]) quire8?]) {
+  Creates a quire8 with the value of @racket[q].
+}
+
+@defproc([posit16->quire16 [p posit16?]) quire16?]) {
+  Creates a quire16 with the value of @racket[q].
+}
+
+@defproc([posit32->quire32 [p posit32?]) quire32?]) {
+  Creates a quire32 with the value of @racket[q].
+}
+
+@defproc([double>quire8 [n real?]) quire8?]) {
+  Creates a quire8 with the value of @racket[n] after @racket[n] is converted to a @racket[posit8].
+}
+
+@defproc([double>quire16 [n real?]) quire16?]) {
+  Creates a quire16 with the value of @racket[n] after @racket[n] is converted to a @racket[posit16].
+}
+
+@defproc([double>quire32 [n real?]) quire32?]) {
+  Creates a quire32 with the value of @racket[n] after @racket[n] is converted to a @racket[posit32].
+}
+
 @subsection{Quire Operations}
 
 Note that there is currently no twos-complement for @racket[_quire8]s.
@@ -416,7 +476,7 @@ Note that there is currently no twos-complement for @racket[_quire8]s.
   Returns the twos complement of @racket[q].
 }
 
-@subsection{Retrieving Posits from Quires}
+@subsection{Retrieving Values from Quires}
 
 @defproc[(quire8->posit8 [q quire8?]) posit8?]{
   Casts @racket[q] to a @racket[_posit8].
@@ -428,4 +488,74 @@ Note that there is currently no twos-complement for @racket[_quire8]s.
 
 @defproc[(quire32->posit32 [q quire32?]) posit32?]{
   Casts @racket[q] to a @racket[_posit32].
+}
+
+@defproc[(quire8->double [q quire8?]) real?]{
+  Casts @racket[q] to a double.
+}
+
+@defproc[(quire16->double [q quire16?]) real?]{
+  Casts @racket[q] to a double.
+}
+
+@defproc[(quire32->double [q quire32?]) real?]{
+  Casts @racket[q] to a double.
+}
+
+@subsection{Generating Random Posits and Quires}
+
+Also included is functionality to generate random posits and quires.
+
+@defproc[(random-posit8) posit8?]{
+  Generates a random posit8.
+}
+
+@defproc[(random-posit16) posit16?]{
+  Generates a random posit16.
+}
+
+@defproc[(random-posit32) posit32?]{
+  Generates a random posit32.
+}
+
+@defproc[(random-posit64) posit64?]{
+  Generates a random posit64.
+}
+
+@defproc[(random-posit128) posit128?]{
+  Generates a random posit128.
+}
+
+@defproc[(random-quire8) quire8?]{
+  Generates a random quire8.
+}
+
+@defproc[(random-quire16) quire16?]{
+  Generates a random quire16.
+}
+
+@defproc[(random-quire32) quire32?]{
+  Generates a random quire32.
+}
+
+@subsection{Posit Constants}
+
+@defproc[(posit8-inf) posit8?]{
+  Returns the +/- infinity value for posit8s.
+}
+
+@defproc[(posit16-inf) posit16?]{
+  Returns the +/- infinity value for posit16s.
+}
+
+@defproc[(posit32-inf) posit32?]{
+  Returns the +/- infinity value for posit32s.
+}
+
+@defproc[(posit64-inf) posit64?]{
+  Returns the +/- infinity value for posit64s.
+}
+
+@defproc[(posit128-inf) posit128?]{
+  Returns the +/- infinity value for posit128s.
 }
