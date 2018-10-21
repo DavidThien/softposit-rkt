@@ -416,27 +416,27 @@ All quires are initialized to 0.
   Creates a new @racket[_quire32].
 }
 
-@defproc([posit8->quire8 [p posit8?]) quire8?]) {
+@defproc[(posit8->quire8 [p posit8?]) quire8?]{
   Creates a quire8 with the value of @racket[q].
 }
 
-@defproc([posit16->quire16 [p posit16?]) quire16?]) {
+@defproc[(posit16->quire16 [p posit16?]) quire16?]{
   Creates a quire16 with the value of @racket[q].
 }
 
-@defproc([posit32->quire32 [p posit32?]) quire32?]) {
+@defproc[(posit32->quire32 [p posit32?]) quire32?]{
   Creates a quire32 with the value of @racket[q].
 }
 
-@defproc([double>quire8 [n real?]) quire8?]) {
+@defproc[(double>quire8 [n real?]) quire8?]{
   Creates a quire8 with the value of @racket[n] after @racket[n] is converted to a @racket[posit8].
 }
 
-@defproc([double>quire16 [n real?]) quire16?]) {
+@defproc[(double>quire16 [n real?]) quire16?]{
   Creates a quire16 with the value of @racket[n] after @racket[n] is converted to a @racket[posit16].
 }
 
-@defproc([double>quire32 [n real?]) quire32?]) {
+@defproc[(double>quire32 [n real?]) quire32?]{
   Creates a quire32 with the value of @racket[n] after @racket[n] is converted to a @racket[posit32].
 }
 
