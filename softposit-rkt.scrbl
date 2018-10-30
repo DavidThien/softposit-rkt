@@ -559,3 +559,18 @@ Also included is functionality to generate random posits and quires.
 @defproc[(posit128-inf) posit128?]{
   Returns the +/- infinity value for posit128s.
 }
+
+@subsection{Posit Ordered Indices}
+These functions return the index of a posit in an ordered list of that posit's type. Starts with the infinity value returning 0.
+
+@defproc[(p8-order-index [p posit8?]) natural?]{
+  Returns the index of @racket[p] in an ordered list of @racket[posit8]s.
+}
+
+@defproc[(p16-order-index [p posit16?]) natural?]{
+  Returns the index of @racket[p] in an ordered list of @racket[posit16]s.
+}
+
+@defproc[(p32-order-index [p posit32?]) natural?]{
+  Returns the index of @racket[p] in an ordered list of @racket[posit32]s.
+}
