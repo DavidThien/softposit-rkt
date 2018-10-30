@@ -42,16 +42,6 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "platform.h"
 #include "internals.h"
 
-uint_fast64_t int_pow( uint_fast64_t base, uint_fast64_t pow ) {
-  if (pow == 0) {
-    return 0;
-  } else if (pow == 1) {
-    return base;
-  } else {
-    return base * int_pow(base, pow - 1);
-  }
-}
-
 uint_fast64_t p8_order_index( posit8_t pA ) {
   return (uint_fast64_t)(0x7F & pA.v) + (0x80 & (~ pA.v));
 }
