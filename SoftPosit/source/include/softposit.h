@@ -75,6 +75,14 @@ extern "C"{
 #define castUI( a ) ( (a).v )
 
 /*----------------------------------------------------------------------------
+| Posit-to-order-index routines (returns the ordered index of a posit
+| starting with +/- inf at 0)
+*----------------------------------------------------------------------------*/
+uint_fast64_t p8_order_index( posit8_t pA );
+uint_fast64_t p16_order_index( posit16_t pA );
+uint_fast64_t p32_order_index( posit32_t pA );
+
+/*----------------------------------------------------------------------------
 | Integer-to-posit conversion routines.
 *----------------------------------------------------------------------------*/
 posit8_t  ui32_to_p8( uint32_t );

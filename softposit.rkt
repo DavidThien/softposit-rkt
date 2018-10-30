@@ -38,7 +38,8 @@
          posit32->double float->posit32 double->posit32
          posit8->quire8 posit16->quire16 posit32->quire32 
          double->quire8 double->quire16 double->quire32
-         quire8->double quire16->double quire32->double)
+         quire8->double quire16->double quire32->double
+         p8-order-index p16-order-index p32-order-index)
 
 (define-cstruct _posit8 ([v _uint8]) #:malloc-mode 'atomic-interior)
 (define-cstruct _posit16 ([v _uint16]) #:malloc-mode 'atomic-interior)
@@ -245,3 +246,7 @@
 (define (quire8->double q) (posit8->double (quire8->posit8 q)))
 (define (quire16->double q) (posit16->double (quire16->posit16 q)))
 (define (quire32->double q) (posit32->double (quire32->posit32 q)))
+
+(define p8-order-index (get-ffi-obj "p8_order_index" "libsoftposit" (_fun _posit8 -> _uint64)))
+(define p16-order-index (get-ffi-obj "p16_order_index" "libsoftposit" (_fun _posit16 -> _uint64)))
+(define p32-order-index (get-ffi-obj "p32_order_index" "libsoftposit" (_fun _posit32 -> _uint64)))
