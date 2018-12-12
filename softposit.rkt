@@ -235,9 +235,9 @@
 (define float->posit32 (get-ffi-obj "convertFloatToP32" "libsoftposit" (_fun _float -> _posit32)))
 (define double->posit32 (get-ffi-obj "convertDoubleToP32" "libsoftposit" (_fun _double -> _posit32)))
 
-(define (posit8->quire8 q) (quire8-fdp-add (create-quire8) q (double->quire8 1.0)))
-(define (posit16->quire16 q) (quire16-fdp-add (create-quire16) q (double->quire16 1.0)))
-(define (posit32->quire32 q) (quire32-fdp-add (create-quire32) q (double->quire32 1.0)))
+(define (posit8->quire8 p) (create-quire8 p))
+(define (posit16->quire16 p) (create-quire16 p))
+(define (posit32->quire32 p) (create-quire32 p))
 
 (define (double->quire8 d) (create-quire8 (double->posit8 d)))
 (define (double->quire16 d) (create-quire16 (double->posit16 d)))
