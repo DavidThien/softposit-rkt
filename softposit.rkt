@@ -167,7 +167,11 @@
 ;; TODO: isNaRQ8, isQ8Zero, (consider q8Clr), castQ8, castP8, negP8
 
 (define posit8->double (get-ffi-obj "convertP8ToDouble" "libsoftposit" (_fun _posit8 -> _double)))
-(define double->posit8 (get-ffi-obj "convertDoubleToP8" "libsoftposit" (_fun _double -> _posit8)))
+(define (double->posit8 x)
+  (define fn (get-ffi-obj "convertDoubleToP8" "libsoftposit" (_fun _double -> _posit8)))
+  (if (exact? x)
+    (fn (exact->inexact x))
+    (fn x)))
 
 (define posit16->uint32 (get-ffi-obj "p16_to_ui32" "libsoftposit" (_fun _posit16 -> _uint32)))
 (define posit16->uint64 (get-ffi-obj "p16_to_ui64" "libsoftposit" (_fun _posit16 -> _uint64)))
@@ -200,7 +204,11 @@
 
 (define posit16->double (get-ffi-obj "convertP16ToDouble" "libsoftposit" (_fun _posit16 -> _double)))
 (define float->posit16 (get-ffi-obj "convertFloatToP16" "libsoftposit" (_fun _float -> _posit16)))
-(define double->posit16 (get-ffi-obj "convertDoubleToP16" "libsoftposit" (_fun _double -> _posit16)))
+(define (double->posit16 x)
+  (define fn (get-ffi-obj "convertDoubleToP16" "libsoftposit" (_fun _double -> _posit16)))
+  (if (exact? x)
+    (fn (exact->inexact x))
+    (fn x)))
 
 (define posit32->uint32 (get-ffi-obj "p32_to_ui32" "libsoftposit" (_fun _posit32 -> _uint32)))
 (define posit32->uint64 (get-ffi-obj "p32_to_ui64" "libsoftposit" (_fun _posit32 -> _uint64)))
@@ -233,7 +241,11 @@
 
 (define posit32->double (get-ffi-obj "convertP32ToDouble" "libsoftposit" (_fun _posit32 -> _double)))
 (define float->posit32 (get-ffi-obj "convertFloatToP32" "libsoftposit" (_fun _float -> _posit32)))
-(define double->posit32 (get-ffi-obj "convertDoubleToP32" "libsoftposit" (_fun _double -> _posit32)))
+(define (double->posit32 x)
+  (define fn (get-ffi-obj "convertDoubleToP32" "libsoftposit" (_fun _double -> _posit32)))
+  (if (exact? x)
+    (fn (exact->inexact x))
+    (fn x)))
 
 (define (posit8->quire8 p) (create-quire8 p))
 (define (posit16->quire16 p) (create-quire16 p))
