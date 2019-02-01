@@ -258,19 +258,19 @@ Note that there are multiple bindings exposed which cast back to natural numbers
   Returns @racket[#t] if @racket[p1] and @racket[p2] are equal.
 }
 
-@defproc[(posit8< [p1 posit8?] [p2 posit8?]) posit8?]{
+@defproc[(posit8< [p1 posit8?] [p2 posit8?]) boolean?]{
   Returns @racket[#t] if @racket[p1] is strictly less than @racket[p2].
 }
 
-@defproc[(posit8<= [p1 posit8?] [p2 posit8?]) posit8?]{
+@defproc[(posit8<= [p1 posit8?] [p2 posit8?]) boolean?]{
   Returns @racket[#t] if @racket[p1] is less than or equal to @racket[p2].
 }
 
-@defproc[(posit8> [p1 posit8?] [p2 posit8?]) posit8?]{
+@defproc[(posit8> [p1 posit8?] [p2 posit8?]) boolean?]{
   Returns @racket[#t] if @racket[p1] is greater than to @racket[p2].
 }
 
-@defproc[(posit8>= [p1 posit8?] [p2 posit8?]) posit8?]{
+@defproc[(posit8>= [p1 posit8?] [p2 posit8?]) boolean?]{
   Returns @racket[#t] if @racket[p1] is greater than or equal to @racket[p2].
 }
 
@@ -306,19 +306,19 @@ Note that there are multiple bindings exposed which cast back to natural numbers
   Returns @racket[#t] if @racket[p1] and @racket[p2] are equal.
 }
 
-@defproc[(posit16< [p1 posit16?] [p2 posit16?]) posit16?]{
+@defproc[(posit16< [p1 posit16?] [p2 posit16?]) boolean?]{
   Returns @racket[#t] if @racket[p1] is strictly less than @racket[p2].
 }
 
-@defproc[(posit16<= [p1 posit16?] [p2 posit16?]) posit16?]{
+@defproc[(posit16<= [p1 posit16?] [p2 posit16?]) boolean?]{
   Returns @racket[#t] if @racket[p1] is less than or equal to @racket[p2].
 }
 
-@defproc[(posit16> [p1 posit16?] [p2 posit16?]) posit16?]{
+@defproc[(posit16> [p1 posit16?] [p2 posit16?]) boolean?]{
   Returns @racket[#t] if @racket[p1] is greater than to @racket[p2].
 }
 
-@defproc[(posit16>= [p1 posit16?] [p2 posit16?]) posit16?]{
+@defproc[(posit16>= [p1 posit16?] [p2 posit16?]) boolean?]{
   Returns @racket[#t] if @racket[p1] is greater than or equal to @racket[p2].
 }
 
@@ -354,19 +354,19 @@ Note that there are multiple bindings exposed which cast back to natural numbers
   Returns @racket[#t] if @racket[p1] and @racket[p2] are equal.
 }
 
-@defproc[(posit32< [p1 posit32?] [p2 posit32?]) posit32?]{
+@defproc[(posit32< [p1 posit32?] [p2 posit32?]) boolean?]{
   Returns @racket[#t] if @racket[p1] is strictly less than @racket[p2].
 }
 
-@defproc[(posit32<= [p1 posit32?] [p2 posit32?]) posit32?]{
+@defproc[(posit32<= [p1 posit32?] [p2 posit32?]) boolean?]{
   Returns @racket[#t] if @racket[p1] is less than or equal to @racket[p2].
 }
 
-@defproc[(posit32> [p1 posit32?] [p2 posit32?]) posit32?]{
+@defproc[(posit32> [p1 posit32?] [p2 posit32?]) boolean?]{
   Returns @racket[#t] if @racket[p1] is greater than to @racket[p2].
 }
 
-@defproc[(posit32>= [p1 posit32?] [p2 posit32?]) posit32?]{
+@defproc[(posit32>= [p1 posit32?] [p2 posit32?]) boolean?]{
   Returns @racket[#t] if @racket[p1] is greater than or equal to @racket[p2].
 }
 
