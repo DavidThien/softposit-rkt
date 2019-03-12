@@ -42,14 +42,14 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "platform.h"
 #include "internals.h"
 
-int_fast64_t p8_ordinal( posit8_t pA ) {
-  return (int_fast64_t)pA.v;
+uint_fast64_t p8_ordinal( posit8_t pA ) {
+  return (uint_fast64_t)pA.v;
 }
 
-int_fast64_t p16_ordinal( posit16_t pA ) {
-  return (int_fast64_t)pA.v;
+uint_fast64_t p16_ordinal( posit16_t pA ) {
+  return (uint_fast64_t)pA.v;
 }
 
-int_fast64_t p32_ordinal( posit32_t pA ) {
-  return (int_fast64_t)pA.v;
+uint_fast64_t p32_ordinal( posit32_t pA ) {
+  return (uint_fast64_t)pA.v;
 }
