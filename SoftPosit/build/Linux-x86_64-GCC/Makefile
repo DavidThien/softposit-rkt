@@ -170,7 +170,7 @@ OBJS_OTHERS = \
   ui64_to_p32$(OBJ) \
   i32_to_p32$(OBJ) \
   i64_to_p32$(OBJ) \
-	posit_order$(OBJ) \
+	posit_ordinal$(OBJ) \
   s_approxRecipSqrt_1Ks$(OBJ) \
   c_convertDecToPosit8$(OBJ) \
   c_convertPosit8ToDec$(OBJ) \
