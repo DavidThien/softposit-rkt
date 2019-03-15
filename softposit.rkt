@@ -39,7 +39,8 @@
          posit8->quire8 posit16->quire16 posit32->quire32 
          double->quire8 double->quire16 double->quire32
          quire8->double quire16->double quire32->double
-         p8-order-index p16-order-index p32-order-index)
+         posit8->ordinal posit16->ordinal posit32->ordinal
+         ordinal->posit8 ordinal->posit16 ordinal->posit32)
 
 (define-cstruct _posit8 ([v _uint8]) #:malloc-mode 'atomic-interior)
 (define-cstruct _posit16 ([v _uint16]) #:malloc-mode 'atomic-interior)
@@ -319,6 +320,11 @@
 (define (quire16->double q) (posit16->double (quire16->posit16 q)))
 (define (quire32->double q) (posit32->double (quire32->posit32 q)))
 
-(define p8-order-index (get-ffi-obj "p8_order_index" "libsoftposit" (_fun _posit8 -> _uint64)))
-(define p16-order-index (get-ffi-obj "p16_order_index" "libsoftposit" (_fun _posit16 -> _uint64)))
-(define p32-order-index (get-ffi-obj "p32_order_index" "libsoftposit" (_fun _posit32 -> _uint64)))
+(define posit8->ordinal (get-ffi-obj "p8_ordinal" "libsoftposit" (_fun _posit8 -> _int8)))
+(define posit16->ordinal (get-ffi-obj "p16_ordinal" "libsoftposit" (_fun _posit16 -> _int16)))
+(define posit32->ordinal (get-ffi-obj "p32_ordinal" "libsoftposit" (_fun _posit32 -> _int32)))
+
+(define ordinal->posit8 (get-ffi-obj "ordinal_p8" "libsoftposit" (_fun _int64 -> _posit8)))
+(define ordinal->posit16 (get-ffi-obj "ordinal_p16" "libsoftposit" (_fun _int64 -> _posit16)))
+(define ordinal->posit32 (get-ffi-obj "ordinal_p32" "libsoftposit" (_fun _int64 -> _posit32)))
+
