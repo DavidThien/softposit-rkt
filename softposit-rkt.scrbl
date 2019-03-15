@@ -560,17 +560,29 @@ Also included is functionality to generate random posits and quires.
   Returns the +/- infinity value for posit128s.
 }
 
-@subsection{Posit Ordered Indices}
-These functions return the index of a posit in an ordered list of that posit's type. Starts with the infinity value returning 0.
+@subsection{Posit Ordinal Functions}
+These functions convert to and from the ordinal representation of a posit. NaR returns 0.
 
-@defproc[(p8-order-index [p posit8?]) natural?]{
-  Returns the index of @racket[p] in an ordered list of @racket[posit8]s.
+@defproc[(p8->ordinal [p posit8?]) natural?]{
+  Returns the ordinal of @racket[p].
 }
 
-@defproc[(p16-order-index [p posit16?]) natural?]{
-  Returns the index of @racket[p] in an ordered list of @racket[posit16]s.
+@defproc[(p16->ordinal [p posit16?]) natural?]{
+  Returns the ordinal of @racket[p].
 }
 
-@defproc[(p32-order-index [p posit32?]) natural?]{
-  Returns the index of @racket[p] in an ordered list of @racket[posit32]s.
+@defproc[(p32->ordinal [p posit32?]) natural?]{
+  Returns the ordinal of @racket[p].
+}
+
+@defproc[(ordinal->p8>ordinal [n natural?]) posit8?]{
+  Returns the @racket[posit8] of the ordinal @racket[n].
+}
+
+@defproc[(ordinal->p16>ordinal [n natural?]) posit16?]{
+  Returns the @racket[posit16] of the ordinal @racket[n].
+}
+
+@defproc[(ordinal->p32>ordinal [n natural?]) posit32?]{
+  Returns the @racket[posit32] of the ordinal @racket[n].
 }
