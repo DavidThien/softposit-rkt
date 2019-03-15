@@ -53,3 +53,21 @@ uint_fast64_t p16_ordinal( posit16_t pA ) {
 uint_fast64_t p32_ordinal( posit32_t pA ) {
   return (uint_fast64_t)pA.v;
 }
+
+posit8_t ordinal_p8( uint_fast64_t v ) {
+  union ui8_p8 uA;
+  uA.ui = (uint8_t)v;
+  return uA.p;
+}
+
+posit16_t ordinal_p16( uint_fast64_t v ) {
+  union ui16_p16 uA;
+  uA.ui = (uint16_t)v;
+  return uA.p;
+}
+
+posit32_t ordinal_p32( uint_fast64_t v ) {
+  union ui32_p32 uA;
+  uA.ui = (uint32_t)v;
+  return uA.p;
+}

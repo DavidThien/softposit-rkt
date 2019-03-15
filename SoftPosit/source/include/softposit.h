@@ -82,6 +82,10 @@ uint_fast64_t p8_ordinal( posit8_t pA );
 uint_fast64_t p16_ordinal( posit16_t pA );
 uint_fast64_t p32_ordinal( posit32_t pA );
 
+posit8_t ordinal_p8( uint_fast64_t pA );
+posit16_t ordinal_p16( uint_fast64_t pA );
+posit32_t ordinal_p32( uint_fast64_t pA );
+
 /*----------------------------------------------------------------------------
 | Integer-to-posit conversion routines.
 *----------------------------------------------------------------------------*/
