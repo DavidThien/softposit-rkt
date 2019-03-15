@@ -78,13 +78,13 @@ extern "C"{
 | Posit-to-order-index routines (returns the ordered index of a posit
 | starting with +/- inf at 0)
 *----------------------------------------------------------------------------*/
-uint_fast64_t p8_ordinal( posit8_t pA );
-uint_fast64_t p16_ordinal( posit16_t pA );
-uint_fast64_t p32_ordinal( posit32_t pA );
+int_fast8_t p8_ordinal( posit8_t pA );
+int_fast16_t p16_ordinal( posit16_t pA );
+int_fast32_t p32_ordinal( posit32_t pA );
 
-posit8_t ordinal_p8( uint_fast64_t pA );
-posit16_t ordinal_p16( uint_fast64_t pA );
-posit32_t ordinal_p32( uint_fast64_t pA );
+posit8_t ordinal_p8( int_fast64_t pA );
+posit16_t ordinal_p16( int_fast64_t pA );
+posit32_t ordinal_p32( int_fast64_t pA );
 
 /*----------------------------------------------------------------------------
 | Integer-to-posit conversion routines.

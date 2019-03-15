@@ -42,32 +42,32 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "platform.h"
 #include "internals.h"
 
-uint_fast64_t p8_ordinal( posit8_t pA ) {
-  return (uint_fast64_t)pA.v;
+int_fast8_t p8_ordinal( posit8_t pA ) {
+  return (int_fast8_t)pA.v;
 }
 
-uint_fast64_t p16_ordinal( posit16_t pA ) {
-  return (uint_fast64_t)pA.v;
+int_fast16_t p16_ordinal( posit16_t pA ) {
+  return (int_fast16_t)pA.v;
 }
 
-uint_fast64_t p32_ordinal( posit32_t pA ) {
-  return (uint_fast64_t)pA.v;
+int_fast32_t p32_ordinal( posit32_t pA ) {
+  return (int_fast32_t)pA.v;
 }
 
-posit8_t ordinal_p8( uint_fast64_t v ) {
+posit8_t ordinal_p8( int_fast64_t v ) {
   union ui8_p8 uA;
-  uA.ui = (uint8_t)v;
+  uA.ui = (int8_t)v;
   return uA.p;
 }
 
-posit16_t ordinal_p16( uint_fast64_t v ) {
+posit16_t ordinal_p16( int_fast64_t v ) {
   union ui16_p16 uA;
-  uA.ui = (uint16_t)v;
+  uA.ui = (int16_t)v;
   return uA.p;
 }
 
-posit32_t ordinal_p32( uint_fast64_t v ) {
+posit32_t ordinal_p32( int_fast64_t v ) {
   union ui32_p32 uA;
-  uA.ui = (uint32_t)v;
+  uA.ui = (int32_t)v;
   return uA.p;
 }
