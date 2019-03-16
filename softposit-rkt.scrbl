@@ -540,24 +540,24 @@ Also included is functionality to generate random posits and quires.
 
 @subsection{Posit Constants}
 
-@defproc[(posit8-inf) posit8?]{
-  Returns the +/- infinity value for posit8s.
+@defproc[(posit8-nar) posit8?]{
+  Returns the "not a real" value for posit8s.
 }
 
-@defproc[(posit16-inf) posit16?]{
-  Returns the +/- infinity value for posit16s.
+@defproc[(posit16-nar) posit16?]{
+  Returns the "not a real" value for posit16s.
 }
 
-@defproc[(posit32-inf) posit32?]{
-  Returns the +/- infinity value for posit32s.
+@defproc[(posit32-nar) posit32?]{
+  Returns the "not a real" value for posit32s.
 }
 
-@defproc[(posit64-inf) posit64?]{
-  Returns the +/- infinity value for posit64s.
+@defproc[(posit64-nar) posit64?]{
+  Returns the "not a real" value for posit64s.
 }
 
-@defproc[(posit128-inf) posit128?]{
-  Returns the +/- infinity value for posit128s.
+@defproc[(posit128-nar) posit128?]{
+  Returns the "not a real" value for posit128s.
 }
 
 @subsection{Posit Ordinal Functions}
