@@ -12,7 +12,7 @@
          quire8? quire16? quire32?
          random-posit8 random-posit16 random-posit32 random-posit64 random-posit128
          random-quire8 random-quire16 random-quire32
-         posit8-inf posit16-inf posit32-inf posit64-inf posit128-inf
+         posit8-nar posit16-nar posit32-nar posit64-nar posit128-nar
          uint32->posit8 uint32->posit16 uint32->posit32 uint64->posit8 uint64->posit16 uint64->posit32
          int32->posit8 int32->posit16 int32->posit32 int64->posit8 int64->posit16 int64->posit32
          posit8->uint32 posit8->uint64 posit8->int32 posit8->int64
@@ -92,19 +92,19 @@
               (random-bits 64)))
   (make-quire32 (list->cblock v _uint64)))
 
-(define (posit8-inf)
+(define (posit8-nar)
   (make-posit8 (expt 2 7)))
 
-(define (posit16-inf)
+(define (posit16-nar)
   (make-posit16 (expt 2 15)))
 
-(define (posit32-inf)
+(define (posit32-nar)
   (make-posit32 (expt 2 31)))
 
-(define (posit64-inf)
+(define (posit64-nar)
   (make-posit64 (expt 2 63)))
 
-(define (posit128-inf)
+(define (posit128-nar)
   (make-posit128 (list->cblock (list (exp 2 63) (exp 2 63)) _uint64)))
 
 (define uint32->posit8 (get-ffi-obj "ui32_to_p8" "libsoftposit" (_fun _uint32 -> _posit8)))
