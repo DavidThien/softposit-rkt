@@ -60,7 +60,7 @@
   #:malloc-mode 'atomic-interior)
 (define-cstruct _posit128 ([v (make-array-type _uint64 2)])
   #:property prop:equal+hash
-  (list (λ (x y) (f (posit128-v x) (posit128-v y))) (λ (x f) (f (posit128-v x))) (λ (x f) (f (posit128-v x))))
+  (list (λ (x y f) (f (posit128-v x) (posit128-v y))) (λ (x f) (f (posit128-v x))) (λ (x f) (f (posit128-v x))))
   #:malloc-mode 'atomic-interior)
 
 (define-cstruct _quire8 ([v _uint32]) 
@@ -267,7 +267,7 @@
 
 (define posit16->double (get-ffi-obj "convertP16ToDouble" "libsoftposit" (_fun _posit16 -> _double)))
 (define float->posit16 (get-ffi-obj "convertFloatToP16" "libsoftposit" (_fun _float -> _posit16)))
-(define double->posit16 x
+(define double->posit16
   (let ([fn (get-ffi-obj "convertDoubleToP16" "libsoftposit" (_fun _double -> _posit16))])
     (λ (x) (if (exact? x) (fn (exact->inexact x)) (fn x)))))
 
