@@ -42,15 +42,39 @@
          posit8->ordinal posit16->ordinal posit32->ordinal
          ordinal->posit8 ordinal->posit16 ordinal->posit32)
 
-(define-cstruct _posit8 ([v _uint8]) #:malloc-mode 'atomic-interior)
-(define-cstruct _posit16 ([v _uint16]) #:malloc-mode 'atomic-interior)
-(define-cstruct _posit32 ([v _uint32]) #:malloc-mode 'atomic-interior)
-(define-cstruct _posit64 ([v _uint64]) #:malloc-mode 'atomic-interior)
-(define-cstruct _posit128 ([v (make-array-type _uint64 2)]) #:malloc-mode 'atomic-interior)
+(define-cstruct _posit8 ([v _uint8])
+  #:property prop:equal+hash
+  (list (λ (x y f) (f (posit8-v x) (posit8-v y))) (λ (x f) (f (posit8-v x))) (λ (x f) (f (posit8-v x))))
+  #:malloc-mode 'atomic-interior)
+(define-cstruct _posit16 ([v _uint16])
+  #:property prop:equal+hash
+  (list (λ (x y f) (f (posit16-v x) (posit16-v y))) (λ (x f) (f (posit16-v x))) (λ (x f) (f (posit16-v x))))
+  #:malloc-mode 'atomic-interior)
+(define-cstruct _posit32 ([v _uint32])
+  #:property prop:equal+hash
+  (list (λ (x y f) (f (posit32-v x) (posit32-v y))) (λ (x f) (f (posit32-v x))) (λ (x f) (f (posit32-v x))))
+  #:malloc-mode 'atomic-interior)
+(define-cstruct _posit64 ([v _uint64])
+  #:property prop:equal+hash
+  (list (λ (x y f) (f (posit64-v x) (posit64-v y))) (λ (x f) (f (posit64-v x))) (λ (x f) (f (posit64-v x))))
+  #:malloc-mode 'atomic-interior)
+(define-cstruct _posit128 ([v (make-array-type _uint64 2)])
+  #:property prop:equal+hash
+  (list (λ (x y) (f (posit128-v x) (posit128-v y))) (λ (x f) (f (posit128-v x))) (λ (x f) (f (posit128-v x))))
+  #:malloc-mode 'atomic-interior)
 
-(define-cstruct _quire8 ([v _uint32]) #:malloc-mode 'atomic-interior)
-(define-cstruct _quire16 ([v (make-array-type _uint64 2)]) #:malloc-mode 'atomic-interior)
-(define-cstruct _quire32 ([v (make-array-type _uint64 8)]) #:malloc-mode 'atomic-interior)
+(define-cstruct _quire8 ([v _uint32]) 
+  #:property prop:equal+hash
+  (list (λ (x y f) (f (quire8-v x) (quire8-v y))) (λ (x f) (f (quire8-v x))) (λ (x f) (f (quire8-v x))))
+  #:malloc-mode 'atomic-interior)
+(define-cstruct _quire16 ([v (make-array-type _uint64 2)])
+  #:property prop:equal+hash
+  (list (λ (x y f) (f (quire16-v x) (quire16-v y))) (λ (x f) (f (quire16-v x))) (λ (x f) (f (quire16-v x))))
+  #:malloc-mode 'atomic-interior)
+(define-cstruct _quire32 ([v (make-array-type _uint64 8)])
+  #:property prop:equal+hash
+  (list (λ (x y f) (f (quire32-v x) (quire32-v y))) (λ (x f) (f (quire32-v x))) (λ (x f) (f (quire32-v x))))
+  #:malloc-mode 'atomic-interior)
 
 (define (random-bits b [n 0])
   (if (= b 0)
