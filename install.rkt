@@ -2,19 +2,19 @@
 
 (require racket/system)
 (require racket/list)
+(require setup/dirs)
 
-(provide pre-installer)
+(provide installer)
 
-(define (pre-installer collections-top-path this-collection-path)
+(define (installer collections-top-path this-collection-path user-specific?)
   (define (call-and-wait command)
     (define out (process command))
-    ;; TODO: This is just for testing purposes
-    (for ([i (in-naturals)]
-          #:break (not (eq? ((fifth out) 'status) 'running)))
-      void))
+    ((fifth out) 'wait))
 
+  ;; Despite the name, this directory contains a Makefile that works on many platforms
   (define build-location (build-path this-collection-path "SoftPosit/build/Linux-x86_64-GCC/"))
-  (define lib-location (build-path this-collection-path "libsoftposit.so"))
+  (define lib-name (path-replace-extension "libsoftposit.so" (system-type 'so-suffix)))
+  (define lib-location (build-path (if user-specific? (find-user-lib-dir) (find-lib-dir)) lib-name))
 
   ;; Compile the softposit C library and wait for the make command to finish
   (call-and-wait (string-append "make -C " (path->string build-location) " SOFTPOSIT_OPTS=\"$(SOFTPOSIT_OPTS) -fPIC\""))
