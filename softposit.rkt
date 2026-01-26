@@ -254,8 +254,8 @@
 (define (posit32>= x y) (posit32<= y x))
 (define (posit32> x y) (posit32< y x))
 
-(define quire32-fdp-add (get-ffi-obj "q32_fdp_add" "libsoftposit" (_fun _quire32 _posit32 _posit32 -> _quire16)))
-(define quire32-fdp-sub (get-ffi-obj "q32_fdp_sub" "libsoftposit" (_fun _quire32 _posit32 _posit32 -> _quire16)))
+(define quire32-fdp-add (get-ffi-obj "q32_fdp_add" "libsoftposit" (_fun _quire32 _posit32 _posit32 -> _quire32)))
+(define quire32-fdp-sub (get-ffi-obj "q32_fdp_sub" "libsoftposit" (_fun _quire32 _posit32 _posit32 -> _quire32)))
 (define quire32->posit32 (get-ffi-obj "q32_to_p32" "libsoftposit" (_fun _quire32 -> _posit32)))
 
 (define quire32-twos-complement (get-ffi-obj "q32_TwosComplement" "libsoftposit" (_fun _quire32 -> _quire32)))
