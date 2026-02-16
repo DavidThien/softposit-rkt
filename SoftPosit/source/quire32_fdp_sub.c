@@ -156,8 +156,7 @@ quire32_t q32_fdp_sub( quire32_t q, posit32_t pA, posit32_t pB ){
 		for (i=7; i>=0; i--){
 			if (uZ2.ui[i]>0){
 				uZ2.ui[i] = - uZ2.ui[i];
-				i--;
-				while(i){
+				for (i = i - 1; i >= 0; i--){
 					uZ2.ui[i] = ~uZ2.ui[i];
 				}
 				break;
